@@ -9,7 +9,7 @@ class GoogleSearch(unittest.TestCase):
     @classmethod
     def setUp(cls):
         print('Start test')
-        cls.driver = webdriver.Chrome("C:\Temp\chromedriver.exe")
+        cls.driver = webdriver.Chrome(".\SeleniumDrivers\chromedriver.exe")
         cls.driver.get('https://google.com')
         time.sleep(2)
 
