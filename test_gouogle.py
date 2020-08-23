@@ -32,11 +32,12 @@ class GoogleSearch(unittest.TestCase):
         input_field.send_keys(Keys.ENTER)
         time.sleep(2)
 
-    def test_02(self):
-        print('Test Automation search')
+
+    def test_03(self):
+        print('Amsterdam')
         driver=self.driver
         input_field = driver.find_element_by_name('q')
-        input_field.send_keys('test automation')
+        input_field.send_keys('Amsterdam weather')
         input_field.send_keys(Keys.ENTER)
         time.sleep(2)
 
