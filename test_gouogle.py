@@ -10,9 +10,11 @@ class GoogleSearch(unittest.TestCase):
     @classmethod
     def setUp(cls):
         print('Start test')
-        chromeDriverPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "SeleniumDrivers", "chromedriver")
+
         if os.name == 'nt':
-            chromeDriverPath += ".exe"
+            chromeDriverPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "SeleniumDrivers", "chromedriver.exe")
+        else:
+            chromeDriverPath = "/usr/bin/chromedriver"
         cls.driver = webdriver.Chrome(chromeDriverPath)
         cls.driver.get('https://google.com')
         time.sleep(2)
