@@ -15,7 +15,12 @@ class GoogleSearch(unittest.TestCase):
             chromeDriverPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "SeleniumDrivers", "chromedriver.exe")
         else:
             chromeDriverPath = "/usr/bin/chromedriver"
-        cls.driver = webdriver.Chrome(chromeDriverPath)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+
+        cls.driver = webdriver.Chrome(executable_path=chromeDriverPath, options=options)
+
+
         cls.driver.get('https://google.com')
         time.sleep(2)
 
