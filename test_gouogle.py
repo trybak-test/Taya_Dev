@@ -1,9 +1,11 @@
-import os
+from datetime import datetime
 
 from selenium import webdriver
 import unittest
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
+import os
+
 import time
 
 class GoogleSearch(unittest.TestCase):
@@ -26,20 +28,24 @@ class GoogleSearch(unittest.TestCase):
 
     def test_01(self):
         print('Python search')
+        timestamp = datetime.now().strftime('%H-%M-%S')
         driver=self.driver
         input_field = driver.find_element_by_name('q')
         input_field.send_keys('python')
         input_field.send_keys(Keys.ENTER)
         time.sleep(2)
+        driver.get_screenshot_as_file(timestamp+'.png')
 
 
     def test_03(self):
+        timestamp = datetime.now().strftime('%H-%M-%S')
         print('Amsterdam')
         driver=self.driver
         input_field = driver.find_element_by_name('q')
         input_field.send_keys('Amsterdam weather')
-        input_field.send_keys(Keys.ENTER)
+        driver.find_element_by_name('btnK').click()
         time.sleep(2)
+        driver.get_screenshot_as_file(timestamp+'.png')
 
     @classmethod
     def tearDownClass(cls):
