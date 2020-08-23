@@ -26,6 +26,7 @@ steps:
 
 - script: |
     pip install pytest pytest-azurepipelines
-    chmod -R 777 SeleniumDrivers
+    chown root:root ./SeleniumDrivers/chromedriver
+    chmod +x ./SeleniumDrivers/chromedriver
     pytest
   displayName: 'pytest'
