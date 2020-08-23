@@ -25,8 +25,9 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
+    sudo chown root:root ./SeleniumDrivers/chromedriver
+    sudo chmod +x ./SeleniumDrivers/chromedriver
+    exit 1
     pip install pytest pytest-azurepipelines
-    chown root:root ./SeleniumDrivers/chromedriver
-    chmod +x ./SeleniumDrivers/chromedriver
     pytest
   displayName: 'pytest'
